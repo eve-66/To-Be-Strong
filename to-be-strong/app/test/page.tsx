@@ -1,8 +1,13 @@
 import { createClient } from '@/utils/supabase/server';
+import ImageForm from '../components/imageform';
 
-export default async function Notes() {
+export default async function GetUsers() {
   const supabase = await createClient();
-  const { data: notes } = await supabase.from("notes").select();
+  const { data: users } = await supabase.from("users").select();
 
-  return <pre>{JSON.stringify(notes, null, 2)}</pre>
+  return (
+    <div className="flex-none">
+      <pre>{JSON.stringify(users, null, 2)}</pre>
+    </div>
+  )
 }

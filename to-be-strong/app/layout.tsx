@@ -14,7 +14,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="flex h-screen w-full justify-between">
+      <body className="flex h-screen w-full">
         <User />
         {children}
       </body>

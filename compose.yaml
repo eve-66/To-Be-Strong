@@ -12,10 +12,8 @@ services:
       - type: volume
         source: app-node_modules
         target: /usr/src/app/to-be-strong/node_modules
-    stdin_open: true
+    # stdin_open: true
     tty: true
-    # environment:
-    #   - WATCHPACK_POLLING=true
     command: ["npm", "run", "dev"] #npm run dev
 
 volumes:

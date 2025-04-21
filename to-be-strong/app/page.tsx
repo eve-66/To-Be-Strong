@@ -1,11 +1,14 @@
-import Dashboard from "./components/dashboard";
-import ToDo from "./components/todo";
+import type { NextPage } from "next";
+import Link from "next/link";
 
-export default function Home() {
+const Page: NextPage = () => {
   return (
-    <div className="flex h-screen w-full justify-stretch">
-      <ToDo/>
-      <Dashboard/>
+    <div className="flex flex-col">
+      top page
+      <Link href="/login">Login</Link>
+      <Link href="/dashboard">Dashboard</Link>
     </div>
-  );
+  )
 }
+
+export default Page

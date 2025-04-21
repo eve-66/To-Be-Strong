@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import User from "./components/user";
 
 export const metadata: Metadata = {
   title: "To-Be-Strong",
@@ -14,8 +13,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="flex h-screen w-full">
-        <User />
+      <body>
         {children}
       </body>
     </html>

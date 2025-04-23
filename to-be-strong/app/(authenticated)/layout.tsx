@@ -7,7 +7,9 @@ export default function RootLayout({
 }>) {
   return (
     <div className="flex h-screen w-full bg-black ">
-      <User />
+      <div className="w-1/5">
+        <User />
+      </div>
       {children}
     </div>
   );

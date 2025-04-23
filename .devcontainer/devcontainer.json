@@ -22,7 +22,9 @@
 			"extensions": [
 				"AvneeshAgarwal.react-nextjs-snippets",
 				"aaron-bond.better-comments",
-				"iJS.reactnextjssnippets"
+				"iJS.reactnextjssnippets",
+				"shardulm94.trailing-spaces",
+				"oderwat.indent-rainbow"
 			]
 		}
 	}

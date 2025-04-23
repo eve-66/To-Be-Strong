@@ -14,7 +14,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        {children}
+        <div className="bg-linear-to-t from-background via-theme to-background h-screen flex flex-col items-center justify-center no-caret">
+          {children}
+        </div>
       </body>
     </html>
   );

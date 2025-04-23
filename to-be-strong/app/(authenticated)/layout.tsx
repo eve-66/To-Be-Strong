@@ -6,7 +6,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <div className="flex h-screen w-full">
+    <div className="flex h-screen w-full bg-black ">
       <User />
       {children}
     </div>

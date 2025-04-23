@@ -2,6 +2,6 @@ import React from 'react'
 
 export default function Dashboard() {
   return (
-    <div className="border-2 w-full border-green-400 text-center">DashBoard</div>
+    <div className="h-full border-2 border-green-400 text-center">DashBoard</div>
   )
 }

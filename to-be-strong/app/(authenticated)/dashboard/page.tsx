@@ -1,5 +1,5 @@
-import Dashboard from "../../components/dashboard";
-import ToDo from "../../components/todo";
+import Dashboard from "../../ui/dashboard";
+import ToDo from "../../ui/todo";
 
 export default function Home() {
   return (

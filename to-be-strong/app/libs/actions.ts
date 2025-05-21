@@ -24,6 +24,7 @@ export async function signup(formData: FormData) {
   // type-casting here for convenience
   // in practice, you should validate your inputs
   const data = {
+    userName: formData.get('formName') as string,
     email: formData.get('email') as string,
     password: formData.get('password') as string,
   }
@@ -32,5 +33,17 @@ export async function signup(formData: FormData) {
     redirect('/error')
   }
   revalidatePath('/', 'layout')
-  redirect('/dashboard')
+  redirect('/')
+}
+
+export async function signOut() {
+  console.log('signOut');
+  const supabase = await createClient();
+
+  const { error } = await supabase.auth.signOut()
+  if (error) {
+    redirect('/error');
+  }
+  revalidatePath('/', 'layout');
+  redirect('/');
 }

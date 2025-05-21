@@ -1,4 +1,5 @@
-import User from "../components/user";
+import { signOut } from "@/app/libs/actions";
+import User from "../../ui/user";
 
 export default function RootLayout({
   children,

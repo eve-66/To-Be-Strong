@@ -13,7 +13,6 @@ export default async function User() {
 
   const size=150;
 
-
   return (
     <div className="h-full min-w-40 border-2 border-green-400 flex flex-col justify-between">
       <div className="flex flex-col items-center">
@@ -49,7 +48,9 @@ export default async function User() {
       </div>
 
       <div className="flex flex-col my-10 items-center">
-        <Link href="/dashboard/setting_profile">
+        <Link href={{pathname: "/dashboard/setting_profile",
+          query: {name: name, userId: userId, website: website}
+        }}>
           <button className="px-5 m-2 bg-white text-black rounded-3xl py-2 hover:bg-theme hover:text-white">
             Setting your profile
           </button>

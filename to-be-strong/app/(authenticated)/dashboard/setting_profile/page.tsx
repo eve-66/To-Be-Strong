@@ -1,33 +1,58 @@
-import { getProfile } from "@/app/libs/data";
+'use client';
+import { useSearchParams } from "next/navigation";
 import type { NextPage } from "next";
-import Link from "next/link";
+import Form from 'next/form'
+import { resourceLimits } from "worker_threads";
+import { error } from "console";
 
 
-const Page: NextPage = async() => {
-  const userData = await getProfile();
-  const name: string = userData?.full_name ? userData.full_name : "No Name"
-  const userId: string = userData?.username ? userData.username : "No Username"
-  const website: string = userData?.website ? userData.website : "No Website"
+const Page: NextPage = () => {
+  const searchParams = useSearchParams();
+
+  const handleSubmit = async (e) => {
+    const name = formData.get("name");
+    const userId = formData.get("userID");
+    const website = formData.get("website");
+
+    if(!resourceLimits.success) { //エラー時ので遷移を阻止
+      e.preventDefault();
+    }
+}
 
   return (
     <div className="h-screen w-full flex flex-col items-center justify-center border-2 border-green-400 text-center">
       <h1 className="text-4xl font-bold my-10">Your Profile</h1>
-      <div className=" my-10">
-        <div className="my-5 text-2xl">
-          Name: {name}
+      <Form action="/dashboard" onSubmit={handleSubmit}> {/* 遷移前にhandleSubmitを実行 */}
+        <div className=" my-10">
+          <div className="my-5 text-2xl">
+            Name:
+            <input
+              name="name"
+              defaultValue={searchParams.get("name") ?? "No Name"}
+              className = "mx-5 border-b-2 border-theme text-center"
+            />
+          </div>
+          <div className="my-5 text-2xl">
+            UserID:
+            <input
+              name="userID"
+              defaultValue={searchParams.get("userId") ?? "No Username"}
+              className = "mx-5 border-b-2 border-theme text-center"
+            />
+          </div>
+          <div className="my-5 text-2xl">
+            Website:
+            <input
+              name="website"
+              defaultValue={searchParams.get("website") ?? "No Website"}
+              className = "mx-5 border-b-2 border-theme text-center"
+            />
+          </div>
         </div>
-        <div className="my-5 text-2xl">
-          UserID: {userId}
-        </div>
-        <div className="my-5 text-2xl">
-          Website: {website}
-        </div>
-      </div>
-      <Link href="/dashboard">
-        <button className="px-5 m-2 bg-white text-black rounded-3xl py-2 hover:bg-theme hover:text-white">
+        <button className="px-5 m-2 bg-white text-black rounded-3xl py-2 hover:bg-theme hover:text-white" type="submit">
           Done
         </button>
-      </Link>
+      </Form>
     </div>
   )
 }
